@@ -13,8 +13,15 @@ register_sidebar(
 
 add_theme_support('post-thumbnails');
 
+//add Format category
+function add_theme_support_cb()
+{
+    add_theme_support('post-formats', array('gallery','image','video','audio'));
+}
+add_action('after_setup_theme', 'add_theme_support_cb');
+
 function shortcode_tw()
 {
-    return '<a href="http://twitter.com/taka">Follow me</a>Follow me!!';
+    return '<a href="http://twitter.com/">Follow me</a>Follow me!!';
 }
 add_shortcode('tw', 'shortcode_tw');
